@@ -1,24 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
+import { useRef, useState } from 'react';
 
 function App() {
+  const click = () => {
+    const name = useRef(null);
+    const [username, setUsername] = useState("");
+    const [check, setCheck] = useState(false);
+    const click = () => {
+      let username = name.current.value;
+      setUsername(username);
+      setCheck(true);
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <center>
+        <br></br>
+        <table border={1} cellPadding={3}>
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td><input type='text'></input></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type='button' value={'Submit'} onClick={click}></input></td>
+            </tr>
+          </thead>
+        </table>
+      </center>
+    </>
   );
 }
 
